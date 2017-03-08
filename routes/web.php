@@ -12,5 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('Index');
 });
+Route::get('/xdl',function() {
+    return view('Index');
+});
+Route::get('/login',[
+    'uses' => 'IndexController@getLogin',
+    'as' => 'get.login'
+]);
