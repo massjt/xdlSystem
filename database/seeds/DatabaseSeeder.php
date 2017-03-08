@@ -11,6 +11,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(SunTabSeeder::class);
+        $this->call(UserTabSeeder::class);
     }
 }

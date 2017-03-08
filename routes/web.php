@@ -11,13 +11,25 @@
 |
 */
 
-Route::get('/', function () {
-    return view('Index');
-});
-Route::get('/xdl',function() {
-    return view('Index');
-});
+
 Route::get('/login',[
     'uses' => 'IndexController@getLogin',
     'as' => 'get.login'
 ]);
+Route::post('/login',[
+    'uses' => 'IndexController@postLogin',
+    'as' => 'post.login'
+]);
+
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('/', function () {
+        return view('Index');
+    });
+    Route::get('/xdl',function() {
+        return view('Index');
+    });
+    Route::get('/logout',[
+        'uses' => 'IndexController@getLogout',
+        'as' => 'get.logout'
+    ]);
+});
