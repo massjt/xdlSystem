@@ -13,7 +13,7 @@ class CreateQuestionsCommentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('questions_comments', function (Blueprint $table) {
+        Schema::create('comments_questions', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('question_id');
             $table->integer('user_id');
@@ -29,6 +29,6 @@ class CreateQuestionsCommentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('questions_comments');
+        Schema::dropIfExists('comments_questions');
     }
 }

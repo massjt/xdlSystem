@@ -22,12 +22,8 @@ Route::post('/login',[
 ]);
 
 Route::group(['middleware' => 'auth'], function() {
-    Route::get('/', function () {
-        return view('Index');
-    });
-    Route::get('/xdl',function() {
-        return view('Index');
-    });
+    Route::get('/', 'QuestionController@getIndex');
+    Route::get('/xdl', 'QuestionController@getIndex');
     Route::get('/logout',[
         'uses' => 'IndexController@getLogout',
         'as' => 'get.logout'

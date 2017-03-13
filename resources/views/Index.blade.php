@@ -3,21 +3,49 @@
 @section('title','xdl index 😀')
 
 @section('styles')
+<style>
+.pagination {
+    display: inline-block;
+    padding-left: 0;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+.pagination>li {
+    display: inline;
+}
+.pagination>li>a, .pagination>li>span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #337ab7;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
 
+li.active > span,.pagination > li.active > span:hover,.pagination > li.active > span:focus {
+  color: #fff;
+  cursor: default;
+  background-color: #DB2828;
+  border: 1px solid #DB2828;
+  border-bottom-color: transparent;
+}
+</style>
 @endsection
 @section('content')
        @include('includes.header')        
-
-        <div class="ui container">
+       <main>
             <!-- 核心内容 -->
-            <article>
-                 <div class="ui pointing secondary menu">
-                    <a class="item active" data-tab="first">最新</a>
-                    <a class="item" data-tab="second">热门</a>
-                    <a class="item" data-tab="third">讲师</a>
+                <div class="ui secondary pointing menu">
+                    <a class="item active">最新回答</a>
+                    <a class="item">热门</a>
+                    <a class="item">讲师 </a>
                 </div>
-                <div class="ui tab segment vertical active" data-tab="first">
-                    <div class="ui items stackable">
+                <div class="ui tab segment vertical active">
+                    <div class="ui items vertical stackable">
+                    @foreach($questions as $question)
                         <div class="item">
                             <section>
                                 <div class="left floated section-left">
@@ -25,9 +53,6 @@
                                         <button class="ui icon button">
                                             <i class="heart icon"></i> 
                                         </button>
-                                        <!--<div class="ui labeled button" tabindex="0">
-                                            <div class="ui grey button"><i class="heart icon"></i>  </div>
-                                        </div>-->
                                         <div class="ui divider"></div>
                                         <button class="ui icon button">
                                             <i class="comment icon"></i>
@@ -36,50 +61,28 @@
                                 </div>
                                 <div class="content">
                                     <h2 class="ui medium header">
-                                    <a class="header">关于页面同时异步请求两个js，渲染页面等待如何优化</a>
+                                    <a class="header">{{ $question->title }}</a>
                                     </h2>
                                     <div class="extra">
-                                        <a class="ui tiny basic label">php</a>
-                                        <a class="ui tiny basic label">前端学习</a>
+                                        @foreach($question->techtags as $tag)
+                                            <a class="ui tiny basic label">{{ $tag->name }}</a>
+                                        @endforeach
                                     </div>
                                 </div>
                             </section><!-- section -->
                         </div><!-- item -->
-
-                         <div class="item">
-                            <section>
-                                <div class="left floated section-left">
-                                    <div class="ui vertical tiny buttons">
-                                        <button class="ui icon button">
-                                            <i class="heart icon"></i> 
-                                        </button>
-                                        <div class="ui divider"></div>
-                                        <button class="ui icon red button">
-                                            <i class="comment icon"></i>20
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="content">
-                                    <h2 class="ui medium header">
-                                    <a class="header">关于页面同时异步请求两个js，渲染页面等待如何优化</a>
-                                    </h2>
-                                    <div class="extra">
-                                        <a class="ui tiny basic label">php</a>
-                                        <a class="ui tiny basic label">html</a>
-                                        <a class="ui tiny basic label">css</a>
-                                        <a class="ui tiny basic label">mysql</a>
-                                        <a class="ui tiny basic label">JavaScript</a>
-                                        <a class="ui tiny basic label">jQuery</a>
-                                    </div>
-                                </div>
-                            </section><!-- section -->
-                        </div><!-- item -->
+                        @endforeach
                       </div>
-                </div><!-- first end -->
-                <div class="ui tab segment" data-tab="second"><h3 class="ui header">AJAX Tab Two</h3><img class="ui wireframe image" src="/images/wireframe/paragraph.png"><img class="ui wireframe image" src="/images/wireframe/paragraph.png"></div>
-                <div class="ui tab segment" data-tab="third"><h3 class="ui header">AJAX Tab Three</h3><img class="ui wireframe image" src="/images/wireframe/paragraph.png"><img class="ui wireframe image" src="/images/wireframe/paragraph.png"></div>
-            </article>
+                </div>
+                <!-- first end -->
         </div>
+       </main>
+       <!-- paginate -->
+       <div class="sixteen wide column">
+            <nav>
+                {{ $questions->links() }}
+            </nav>
+       </div>
         <!-- 全局遮罩 -->
        <div class="ui page dimmer">
             <div class="content">
@@ -97,28 +100,7 @@
 @endsection
 
 @section('scripts')
-        <script>
-        //核心内容 tab选项卡js
-$('.ui.secondary.menu .item')
-  .tab({
-    cache: false,
-    // faking API request
-    apiSettings: {
-      loadingDuration : 300,
-      mockResponse    : function(settings) {
-        var response = {
-          first  : 'AJAX Tab One',
-          second : 'AJAX Tab Two',
-          third  : 'AJAX Tab Three'
-        };
-        return response[settings.urlData.tab];
-      }
-    },
-    context : 'parent',
-    auto    : true,
-    path    : '/'
-  })
-
+<script>
   // 遮罩层 dimmer
   $('.header-search-item').click(function(){
         $('body').dimmer('toggle')
@@ -127,5 +109,5 @@ $('.ui.secondary.menu .item')
   $('.ui.dropdown.header-user').dropdown({
       transition: 'drop'
   });
-        </script>
+</script>
 @endsection

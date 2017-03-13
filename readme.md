@@ -13,10 +13,10 @@ Project started 😀😬✊🍺👏
 
     users       用户信息 
     identities    用户身份
-    users_identities 用户信息身份关联
+    users_identities 用户信息身份关联  (还未建)
     questions    问题信息
     techtags     问题标签
-    questions_techtags   
+    questions_techtags      问题信息 与 问题标签关联表
     questions_comments      问题评论表
         question_id comment 
     notifications    通知表(用户提问，email通知给指定用户)
