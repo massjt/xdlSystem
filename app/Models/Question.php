@@ -10,4 +10,8 @@ class Question extends Model
     {
         return $this->belongsToMany('App\Models\Techtag','questions_techtags');
     }
+    public function operating()
+    {
+        return $this->hasMany('App\Models\Operating');
+    }
 }

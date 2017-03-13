@@ -25,12 +25,21 @@
     border: 1px solid #ddd;
 }
 
-li.active > span,.pagination > li.active > span:hover,.pagination > li.active > span:focus {
+.pagination > li.active > span,.pagination > li.active > span:hover,.pagination > li.active > span:focus {
   color: #fff;
   cursor: default;
   background-color: #DB2828;
   border: 1px solid #DB2828;
   border-bottom-color: transparent;
+}
+
+.pagination > li.disabled > span,
+.pagination > li.disabled > span:hover,
+.pagination > li.disabled > span:focus {
+  color: #777;
+  text-decoration: none;
+  cursor: not-allowed;
+  background-color: #ccc;
 }
 </style>
 @endsection
@@ -51,7 +60,7 @@ li.active > span,.pagination > li.active > span:hover,.pagination > li.active > 
                                 <div class="left floated section-left">
                                     <div class="ui vertical tiny buttons">
                                         <button class="ui icon button">
-                                            <i class="heart icon"></i> 
+                                            {{ $question->operating->where('voteup',true)->count() }}<i class="heart icon"></i> 
                                         </button>
                                         <div class="ui divider"></div>
                                         <button class="ui icon button">
