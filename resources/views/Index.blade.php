@@ -60,7 +60,7 @@
                             <section>
                                 <div class="left floated section-left">
                                     <div class="ui vertical tiny buttons">
-                                        <button class="ui icon button">
+                                        <button class="ui icon button {{ !empty($question->operating->where('voteup',true)->count()) ? 'red' : '' }}">
                                             {{ $question->operating->where('voteup',true)->count() }}<i class="heart icon"></i> 
                                         </button>
                                         <div class="ui divider"></div>
