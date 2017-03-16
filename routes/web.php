@@ -23,7 +23,15 @@ Route::post('/login',[
 
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/', 'QuestionController@getIndex');
-    Route::get('/xdl', 'QuestionController@getIndex');
+    Route::get('/questions', [
+        'uses' => 'QuestionController@getIndex',
+        'as' => 'new.questions'
+    ]);
+    // hot
+    Route::get('/questions/hot', [
+        'uses' => 'QuestionController@getHot',
+        'as' => 'hot.questions'
+    ]);
     Route::get('/logout',[
         'uses' => 'IndexController@getLogout',
         'as' => 'get.logout'

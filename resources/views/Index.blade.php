@@ -37,6 +37,7 @@
 .pagination > li.disabled > span:hover,
 .pagination > li.disabled > span:focus {
   color: #777;
+  border: 1px solid #ccc;
   text-decoration: none;
   cursor: not-allowed;
   background-color: #ccc;
@@ -48,8 +49,8 @@
        <main>
             <!-- 核心内容 -->
                 <div class="ui secondary pointing menu">
-                    <a class="item active">最新回答</a>
-                    <a class="item">热门</a>
+                    <a href="{{ route('new.questions') }}" class="item active">最新回答</a>
+                    <a href="{{ route('hot.questions') }}" class="item">热门</a>
                     <a class="item">讲师 </a>
                 </div>
                 <div class="ui tab segment vertical active">
@@ -92,7 +93,7 @@
                 {{ $questions->links() }}
             </nav>
        </div>
-        <!-- 全局遮罩 -->
+             <!-- 全局遮罩 -->
        <div class="ui page dimmer">
             <div class="content">
                 <div class="center">
@@ -106,17 +107,18 @@
                 </div>
             </div>
         </div>
+        
 @endsection
 
 @section('scripts')
 <script>
-  // 遮罩层 dimmer
-  $('.header-search-item').click(function(){
-        $('body').dimmer('toggle')
-  })
+    $('.header-search-item').click(function(){
+        $('.ui.page.dimmer').dimmer('toggle')
+    })
+  
 //头部点击user弹出
-  $('.ui.dropdown.header-user').dropdown({
-      transition: 'drop'
-  });
+    $('.ui.dropdown.header-user').dropdown({
+        transition: 'drop'
+    });
 </script>
 @endsection

@@ -12,12 +12,12 @@ class QuestionController extends Controller
     public function getIndex()
     {
         $questions = Question::orderBy('created_at')->paginate(3);
-        // foreach($questions as $question) {
-            // foreach($question->operating as $gg) {
-            //     dd($gg->voteup);
-            // }
-            // dd($question->operating->where('voteup','false')->count());
-        // }
         return view('Index',['questions' => $questions]);
+    }
+
+    // 最热问题
+    public function getHot(Request $request)
+    {
+        dd($request->ip);
     }
 }
