@@ -26,7 +26,24 @@ Project started 😀😬✊🍺👏
 
     Todo: 基于问题评论表的评论
     
+## 缓存修改
 
+缓存驱动修改(两种方式任选):
+- `config/cache.php`下将`'default' => env('CACHE_DRIVER', 'file')` 改为 `'default' => 'redis'`
+- `.env`中`CACHE_DRIVER`改driver,为redis
+
+具体redis配置见`config/database.php`
+
+## 页面浏览量
+> 通过redis缓存
+
+在`App/Providers/EventServiceProvider.php`注册监听事件，`php artisan event:generate` 生成事件和监听文件
+实际上可以理解`App/Event/QuestionViewCount.php`来传递数据，`App/Listeners/QuestionEventListener.php`来处理具体逻辑
+
+## redis
+> 由于redis用的较少，记录下相关信息
+
+[设置/删除密码](http://redisdoc.com/connection/auth.html)
 ## FAQ
     withInput 可以代替 old功能
     [评论系统设计](http://ratwu.com/2011/11/comment/)
