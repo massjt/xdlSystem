@@ -54,7 +54,7 @@ article {
 */
 .ui.dropdown.header-user .menu {
     top: 3em;
-    right: -1em !important;
+    /*right: -1em !important;*/
 }
 
 article .ui.segment {

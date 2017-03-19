@@ -45,6 +45,15 @@ Project started 😀😬✊🍺👏
 
 `redis-server`是`Redis`的服务器，启动`Redis`即运行`redis-server`；而`redis-cli`是`Redis`自带的命令行客户端
 
+## laravel-hashids
+> Generate short, unique, non-sequential ids (like YouTube and Bitly) from numbers,隐藏真实id
+
+[laravel-hashids](https://github.com/vinkla/laravel-hashids)
+
+
+
+
+
 [设置/删除密码](http://redisdoc.com/connection/auth.html)
 ## FAQ
     withInput 可以代替 old功能

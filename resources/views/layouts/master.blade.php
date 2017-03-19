@@ -12,15 +12,21 @@
 </head>
 <body>
     <div class="ui grid container">
-        <div class="row">
-            {{-- <div class="column"> --}}
-           
+        
             @yield('content')
-            {{-- </div> --}}
-        </div>
+        
     </div>
     <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
     <script src="{{ URL::to('js/share/semantic.js') }}"></script>
     @yield('scripts')
+    <script>
+        $('.header-search-item').click(function(){
+            $('.ui.page.dimmer').dimmer('toggle')
+        })
+    //头部点击user弹出
+        $('.ui.dropdown.header-user').dropdown({
+            transition: 'drop'
+        });
+    </script>
 </body>
 </html>

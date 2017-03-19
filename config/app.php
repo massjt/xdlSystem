@@ -186,6 +186,10 @@ return [
         Laravel Debugbar
         */
         Barryvdh\Debugbar\ServiceProvider::class,
+        /*
+        laravel-hashids
+        */
+        Vinkla\Hashids\HashidsServiceProvider::class,
 
     ],
 
@@ -235,7 +239,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
-
+        'Hashids' => Vinkla\Hashids\Facades\Hashids::class,
     ],
 
 ];

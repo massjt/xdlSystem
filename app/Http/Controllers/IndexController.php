@@ -13,7 +13,7 @@ class IndexController extends Controller
     public function getLogin()
     {
         if (Auth::check()) {
-            return view('Index');
+            return redirect()->intended('questions');
         }
         return view('frontend.login');
     }
@@ -33,7 +33,7 @@ class IndexController extends Controller
         if (!Auth::guard()->attempt(['email' => $request->email, 'password' => $request->password],$request->remember_me)) {
             return redirect()->back()->withInput()->with(['use_pwd_fail' => '用户名或密码错误']);
         }
-        return redirect()->intended('xdl');
+        return redirect()->intended('questions');
     }
 
     public function getLogout()

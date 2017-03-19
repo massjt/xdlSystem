@@ -32,6 +32,11 @@ Route::group(['middleware' => 'auth'], function() {
         'uses' => 'QuestionController@getHot',
         'as' => 'hot.questions'
     ]);
+    // single question
+    Route::get('/q/{id}',[
+        'uses' => 'QuestionController@getSingleQues',
+        'as' => 'single.ques'
+    ]);
     Route::get('/logout',[
         'uses' => 'IndexController@getLogout',
         'as' => 'get.logout'

@@ -44,7 +44,7 @@
 
 @section('content')
 
-{{-- <div class="ui middle aligned center  grid"> --}}
+<div class="row">
   <div class="column">
     <h2 class="ui teal image header">
       <img src="{{ URL::to('img/home/xdllogo.png') }}" class="image centered">
@@ -105,6 +105,6 @@
               </div>
     </div>
   </div>
-{{-- </div> --}}
+</div>
 
 @endsection

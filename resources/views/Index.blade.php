@@ -45,6 +45,7 @@
 </style>
 @endsection
 @section('content')
+<div class="row">
        @include('includes.header')        
        <main>
             <!-- 核心内容 -->
@@ -71,7 +72,7 @@
                                 </div>
                                 <div class="content">
                                     <h2 class="ui medium header">
-                                    <a class="header">{{ $question->title }}</a>
+                                    <a href="/q/{{ Hashids::encode($question->id) }}" class="header">{{ $question->title }}</a>
                                     </h2>
                                     <div class="extra">
                                         @foreach($question->techtags as $tag)
@@ -107,18 +108,11 @@
                 </div>
             </div>
         </div>
-        
+</div>  
 @endsection
 
 @section('scripts')
 <script>
-    $('.header-search-item').click(function(){
-        $('.ui.page.dimmer').dimmer('toggle')
-    })
-  
-//头部点击user弹出
-    $('.ui.dropdown.header-user').dropdown({
-        transition: 'drop'
-    });
+
 </script>
 @endsection

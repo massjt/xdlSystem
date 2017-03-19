@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Question;
-use Auth;
-use Cache;
+use App\Events\QuestionViewCount;
+use Illuminate\Support\Facades\Cache;
+use Vinkla\Hashids\Facades\Hashids;
+use Event;
 
 class QuestionController extends Controller
 {
@@ -24,13 +26,16 @@ class QuestionController extends Controller
     
     }
     // 单个问题处理
-    public function getQuestionCache(Request $request,$id)
+    public function getSingleQues(Request $request,$id)
     {
+        $id = Hashids::decode($id)[0];
         $questions = Cache::remember('ques:cache'.$id, self::modelCacheExpires, function() use ($id) {
             return Question::where('id', $id)->first();
         });
 
         $client_ip = $request->ip();
 
-        Event::fire(new QuestionViewCount($question,$client_ip));
+        Event::fire(new QuestionViewCount($questions,$client_ip));
+        return view('frontend.singleQues', compact('questions'));
     }
+}
