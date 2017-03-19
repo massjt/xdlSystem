@@ -43,6 +43,8 @@ Project started 😀😬✊🍺👏
 ## redis
 > 由于redis用的较少，记录下相关信息
 
+`redis-server`是`Redis`的服务器，启动`Redis`即运行`redis-server`；而`redis-cli`是`Redis`自带的命令行客户端
+
 [设置/删除密码](http://redisdoc.com/connection/auth.html)
 ## FAQ
     withInput 可以代替 old功能

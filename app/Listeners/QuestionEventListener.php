@@ -32,7 +32,7 @@ class QuestionEventListener
     /**
      * Handle the event.
      *
-     * @param  SomeEvent  $event
+     * @param  QuestionViewCount  $event
      * @return void
      */
     public function handle(QuestionViewCount $event)
@@ -40,5 +40,27 @@ class QuestionEventListener
         $question = $event->question;
         $client_ip = $event->client_ip;
         $ques_id = $question->id;
+
+        if ($this->ipViewLimit($ques_id, $client_ip)) {
+            $this->updateCacheViewCount($id, $ip);
+        }
+
+    }
+
+    /**
+     * 一段时间内，限制同一IP访问，防止增加无效浏览次数
+     *
+     * @param  QuestionViewCount  $event
+     * @return void
+     */
+    
+    public function ipViewLimit($id,$ip)
+    {
+
+    }
+
+    public function updateCacheViewCount($id,$ip) 
+    {
+
     }
 }
