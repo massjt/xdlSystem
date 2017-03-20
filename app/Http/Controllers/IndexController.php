@@ -20,7 +20,7 @@ class IndexController extends Controller
 
     public function postLogin(Request $request)
     {
-        $create = $request->only(['email','password']);
+        $create = $request->only(['email','password','captcha']);
         $validator = Validator::make($create,[
             'email' => 'required|email',
             'captcha' => 'required|captcha',

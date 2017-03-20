@@ -2,20 +2,10 @@
 @section('title',$question->title)
 @section('styles')
 <style>
-#edui1_elementpath {
-    display: none;
-}
-
-#edui1_wordcount {
-    display: none;
-}
-
 #container {
     width: 100%;
 }
-#edui1 {
-    max-width: 100%;
-}
+
 </style>
 @endsection
 @section('content')

@@ -37,6 +37,16 @@ Route::group(['middleware' => 'auth'], function() {
         'uses' => 'QuestionController@getSingleQues',
         'as' => 'single.ques'
     ]);
+    // ask question
+    Route::get('/ask', [
+        'uses' => 'AskController@getIndex',
+        'as' => 'ask.question'
+    ]);
+    // post question
+    Route::post('/ask', [
+        'uses' => 'AskController@postIndex',
+        'as' => 'post.question'
+    ]);
     Route::get('/logout',[
         'uses' => 'IndexController@getLogout',
         'as' => 'get.logout'

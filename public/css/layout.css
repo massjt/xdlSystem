@@ -60,3 +60,18 @@ article {
 article .ui.segment {
     z-index: -1;
 }
+/*
+baidu ueditor 
+*/
+#edui1_elementpath {
+    display: none;
+}
+
+#edui1_wordcount {
+    display: none;
+}
+
+#edui1 {
+    max-width: 100% !important;
+    z-index: 9 !important;
+}
