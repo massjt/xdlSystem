@@ -1,7 +1,25 @@
 @extends('layouts.master')
 @section('title',$question->title)
-@section('content')
+@section('styles')
+<style>
+#edui1_elementpath {
+    display: none;
+}
 
+#edui1_wordcount {
+    display: none;
+}
+
+#container {
+    width: 100%;
+}
+#edui1 {
+    max-width: 100%;
+}
+</style>
+@endsection
+@section('content')
+    @include('vendor.ueditor.assets')
     @include('includes.header')
     <div class="row">
         <div class="column">
@@ -29,8 +47,16 @@
             </div>
         </div>
     </div>
+    <!-- 编辑器容器 -->
+    <script id="container" name="content" type="text/plain"></script>
 @endsection
 
 @section('scripts')
-
+<!-- 实例化编辑器 -->
+<script type="text/javascript">
+    var ue = UE.getEditor('container');
+    ue.ready(function() {
+        ue.execCommand('serverparam', '_token', '{{ csrf_token() }}'); // 设置 CSRF token.
+    });
+</script>
 @endsection

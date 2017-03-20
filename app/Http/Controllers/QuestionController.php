@@ -50,7 +50,7 @@ class QuestionController extends Controller
     */
     protected function quesHot($Qviews, $Qanswers, $Qscore, $Ascores, $date_ask, $date_active)
     {
-         $Qage = (time() - strtotime(gmdate("Y-m-d H:i:s",strtotime($date_ask)))) / 3600;
+        $Qage = (time() - strtotime(gmdate("Y-m-d H:i:s",strtotime($date_ask)))) / 3600;
         $Qage = round($Qage, 1);
     
         $Qupdated = (time() - strtotime(gmdate("Y-m-d H:i:s",strtotime($date_active)))) / 3600;

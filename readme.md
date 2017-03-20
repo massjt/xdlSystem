@@ -8,6 +8,11 @@ Project started 😀😬✊🍺👏
 - [barryvdh/laravel-debugbar](https://github.com/barryvdh/laravel-debugbar)
 - [caouecs/Laravel-lang](https://github.com/caouecs/Laravel-lang)
 - [markdown编辑](https://simplemde.com/)
+- [项目使用的UEditor integration for Laravel 5](https://github.com/overtrue/laravel-ueditor)
+- [laravel-hashids](https://github.com/vinkla/laravel-hashids)  Generate short, unique, non-sequential ids (like YouTube and Bitly) from numbers,隐藏真实id
+- [验证码](https://github.com/mewebstudio/captcha)
+
+
 
 ## sql
 
@@ -45,10 +50,7 @@ Project started 😀😬✊🍺👏
 
 `redis-server`是`Redis`的服务器，启动`Redis`即运行`redis-server`；而`redis-cli`是`Redis`自带的命令行客户端
 
-## laravel-hashids
-> Generate short, unique, non-sequential ids (like YouTube and Bitly) from numbers,隐藏真实id
 
-[laravel-hashids](https://github.com/vinkla/laravel-hashids)
 
 ## 热门排序算法
 > 参照stackoverflow算法

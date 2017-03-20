@@ -23,6 +23,7 @@ class IndexController extends Controller
         $create = $request->only(['email','password']);
         $validator = Validator::make($create,[
             'email' => 'required|email',
+            'captcha' => 'required|captcha',
             'password' => 'required|min:6'
         ]);
 

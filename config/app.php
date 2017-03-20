@@ -190,6 +190,14 @@ return [
         laravel-hashids
         */
         Vinkla\Hashids\HashidsServiceProvider::class,
+        /*
+        laravel-UEditor
+        */
+        Overtrue\LaravelUEditor\UEditorServiceProvider::class,
+        /*
+            mewebstudio/captcha
+        */
+        Mews\Captcha\CaptchaServiceProvider::class,
 
     ],
 
@@ -240,6 +248,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Hashids' => Vinkla\Hashids\Facades\Hashids::class,
+        'Captcha' => Mews\Captcha\Facades\Captcha::class,
     ],
 
 ];

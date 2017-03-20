@@ -38,6 +38,15 @@
                     width: 70% !important;
                 }
             }
+
+            .captcha_img {
+              position: relative;
+              top: 14px;
+            }
+
+            .captcha_img {
+              cursor: pointer;
+            }
         </style>
 
 @endsection
@@ -51,32 +60,28 @@
     </h2>
     <form class="ui large form" method="post" action="{{ route('post.login') }}">
       <div class="ui stacked segment">
-      @if (Session::has('fail'))
-        <div class="error field">
-      @else
-        <div class="field">
-      @endif
+      <div class="field {{ !empty(Session::has('fail')) ? 'error' : '' }}">
           <div class="ui left icon input">
             <i class="user icon"></i>
             <input type="text" name="email" value="{{ old('email') }}" placeholder="请输入邮箱">
           </div>
         </div>
-      @if (Session::has('fail'))
-        <div class="error field">
-      @else
-        <div class="field">
-      @endif
+      <div class="field {{ !empty(Session::has('fail')) ? 'error' : '' }}">
           <div class="ui left icon input">
             <i class="lock icon"></i>
             <input type="password" name="password" value="{{ old('password') }}" placeholder="请输入密码">
           </div>
         </div>
 
-        <div class="inline field" style="text-align:left;">
-            <div class="ui checkbox">
-            <input type="checkbox" id="remember_me" tabindex="0" name="remember_me" value="1">
-            <label for="remember_me">记住我</label>
-            </div>
+        <div class="inline fields">
+              <div class="field">
+                <input type="checkbox" id="remember_me" tabindex="0" name="remember_me" value="1">
+                <label for="remember_me">记住我</label>
+              </div>
+              <div class="field right">
+                <input id="captcha" type="text" name="captcha">
+                <img class="centered image centered captcha_img" src="{{captcha_src()}}">
+              </div>
         </div>
 
         <button class="ui fluid large teal submit button">Login</button>
@@ -107,4 +112,20 @@
   </div>
 </div>
 
+@endsection
+
+@section('scripts')
+  <script>
+    $('.captcha_img').click(function(){
+      var val = "{!! captcha_src() !!}" + Math.random();
+      $(this).attr('src', val);
+      /*
+      var that = $(this);
+      setTimeout(function(){
+        alert(val);
+        that.attr('src', val);
+      },100);
+      */
+    })
+  </script>
 @endsection
