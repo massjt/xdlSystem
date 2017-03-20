@@ -5,49 +5,48 @@
 @section('styles')
 
   <style>
-            
-            body {
-              background-color: #DADADA;
-            }
-           
-            .ui.grid > .row {
-                justify-content: center;
-            }
-          
+        body {
+          background-color: #DADADA;
+        }
+        
+        .ui.grid > .row {
+            justify-content: center;
+        }
+      
+        .column {
+            text-align: center;
+        }
+
+        .ui.teal.header {
+          color: #C11920 !important;
+        }
+
+        .ui.teal.buttons .button:hover, .ui.teal.button:hover {
+          background-color: #C11920;
+        }
+
+        .ui.teal.buttons .button, .ui.teal.button {
+          background-color: #C11920;
+        }
+
+        .ui.button {
+          background: #F8F8F9;
+        }
+        @media screen and (min-width: 960px) {
             .column {
-                text-align: center;
+                width: 70% !important;
             }
+        }
 
-            .ui.teal.header {
-              color: #C11920 !important;
-            }
+        .captcha_img {
+          position: relative;
+          top: 14px;
+        }
 
-            .ui.teal.buttons .button:hover, .ui.teal.button:hover {
-              background-color: #C11920;
-            }
-
-            .ui.teal.buttons .button, .ui.teal.button {
-              background-color: #C11920;
-            }
-
-            .ui.button {
-              background: #F8F8F9;
-            }
-            @media screen and (min-width: 960px) {
-                .column {
-                    width: 70% !important;
-                }
-            }
-
-            .captcha_img {
-              position: relative;
-              top: 14px;
-            }
-
-            .captcha_img {
-              cursor: pointer;
-            }
-        </style>
+        .captcha_img {
+          cursor: pointer;
+        }
+    </style>
 
 @endsection
 
@@ -78,8 +77,8 @@
                 <input type="checkbox" id="remember_me" tabindex="0" name="remember_me" value="1">
                 <label for="remember_me">记住我</label>
               </div>
-              <div class="field right">
-                <input id="captcha" type="text" name="captcha">
+              <div class="field {{ !empty(Session::has('fail')) ? 'error' : '' }}">
+                <input style="width:30%;" id="captcha" type="text" name="captcha">
                 <img class="centered image centered captcha_img" src="{{captcha_src()}}">
               </div>
         </div>
@@ -119,13 +118,6 @@
     $('.captcha_img').click(function(){
       var val = "{!! captcha_src() !!}" + Math.random();
       $(this).attr('src', val);
-      /*
-      var that = $(this);
-      setTimeout(function(){
-        alert(val);
-        that.attr('src', val);
-      },100);
-      */
     })
   </script>
 @endsection

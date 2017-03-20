@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Vinkla\Hashids\Facades\Hashids;
 use App\Models\Techtag;
 
 class AskController extends Controller
@@ -19,7 +20,9 @@ class AskController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'tag_name' => 'required',
-            'content' => 'required'
+            'ask_content' => 'required'
         ]);
+
+        
     }
 }

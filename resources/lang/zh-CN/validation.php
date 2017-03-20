@@ -137,6 +137,8 @@ return [
         'time'                  => '时间',
         'available'             => '可用的',
         'size'                  => '大小',
-        'captcha'               => '验证码'
+        'captcha'               => '验证码',
+        'tag_name'              => '标签',
+        'ask_content'           => '提问内容'
     ],
 ];
