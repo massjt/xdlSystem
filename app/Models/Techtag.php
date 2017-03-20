@@ -8,6 +8,6 @@ class Techtag extends Model
 {
     public function questions()
     {
-        return $this->hasMany('App\Models\Question', 'questions_techtags');
+        return $this->belongsToMany('App\Models\Question', 'questions_techtags');
     }
 }

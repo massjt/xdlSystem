@@ -8,6 +8,7 @@ use Carbon\Carbon;
 class Question extends Model
 {
     protected $datas = ['created_at'];
+    protected $fillable = ['title','content'];
     public function techtags()
     {
         return $this->belongsToMany('App\Models\Techtag','questions_techtags');

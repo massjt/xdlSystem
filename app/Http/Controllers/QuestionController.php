@@ -12,6 +12,7 @@ use Carbon\Carbon;
 
 class QuestionController extends Controller
 {
+    
     const modelCacheExpires = 10;
     // 首页最新问题
     public function getIndex()
