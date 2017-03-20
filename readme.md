@@ -50,7 +50,10 @@ Project started 😀😬✊🍺👏
 
 [laravel-hashids](https://github.com/vinkla/laravel-hashids)
 
+## 热门排序算法
+> 参照stackoverflow算法
 
+[基于用户投票的排名算法：Stack Overflow](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_stack_overflow.html)
 
 
 
@@ -58,3 +61,5 @@ Project started 😀😬✊🍺👏
 ## FAQ
     withInput 可以代替 old功能
     [评论系统设计](http://ratwu.com/2011/11/comment/)
+
+[获取最近执行sql的查询语句](http://stackoverflow.com/questions/27753868/how-to-get-the-query-executed-in-laravel-5-dbgetquerylog-returning-empty-arr)

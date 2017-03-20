@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','😀😀😀😀')
+@section('title',$question->title)
 @section('content')
 
     @include('includes.header')
@@ -9,18 +9,20 @@
                 <div class="item">
                     <div class="content">
                     <h1 class="ui header">
-                        <a>12 Years a Slave</a>
+                        <a href="{{ Request::getRequestUri() }}">{{ $question->title }}</a>
                     </h1>
                     <div class="meta">
-                        <a href="/">孙马克</a><span class="cinema">6小时前</span>
+                        <a href="">孙马克</a>
+                        <span class="cinema">{{ $question->created_at }}</span>
+                        <span>{{ $question->view_count }} 阅读</span>
                     </div>
                     <div class="description">
                         <p></p>
                     </div>
                     <div class="extra">
-                        <a class="ui tiny basic label">php</a>
-                        <a class="ui tiny basic label">JavaScript</a>
-                        <a class="ui tiny basic label">html5</a>
+                        @foreach($question->techtags as $tag)
+                            <a class="ui tiny basic label">{{ $tag->name }}</a>
+                        @endforeach
                     </div>
                     </div>
                 </div>
