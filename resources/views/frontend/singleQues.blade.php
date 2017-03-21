@@ -38,6 +38,12 @@
         </div>
     </div>
     <!-- 编辑器容器 -->
+    <div class="ui raised segment" style="border:0;width:100%;">
+        <p>
+            {!! $question->content !!}
+        </p>
+    </div>
+    <h2 class="ui dividing header" style="width:100%;">多少个回答</h2>
     <script id="container" name="content" type="text/plain"></script>
 @endsection
 

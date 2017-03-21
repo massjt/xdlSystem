@@ -47,12 +47,13 @@
 @section('content')
 <div class="row">
        @include('includes.header')        
+       @include('includes.info-box')
        <main>
             <!-- 核心内容 -->
                 <div class="ui secondary pointing menu">
                     <a href="{{ route('new.questions') }}" class="item {{ Request::is('questions') || Request::is('/') ? 'active' : '' }}">最新回答</a>
                     <a href="{{ route('hot.questions') }}" class="item {{ Request::is('questions/hot') ? 'active' : '' }}">热门</a>
-                    <a class="item">讲师 </a>
+                    <a class="item">包治百病 </a>
                 </div>
                 <div class="ui tab segment vertical active">
                     <div class="ui items vertical stackable">

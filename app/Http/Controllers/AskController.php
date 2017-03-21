@@ -24,23 +24,20 @@ class AskController extends Controller
             'tag_name' => 'required',
             'ask_content' => 'required'
         ]);
-        /*
-            array:3 [▼
-            0 => "1"
-            1 => "2"
-            2 => "3"
-            ]
-        */
         $tag_name = explode(',' ,$request->tag_name);
         
-        $question = new Question(['title' => $request->title,'content' => $request->ask_content]);
-        //$question->title = $request->title;
-        //$question->content = $request->ask_content;
+        //$question = new Question(['title' => $request->title,'content' => $request->ask_content]);
+        $question = new Question();
+        $question->title = $request->title;
+        $question->content = $request->ask_content;
+        $question->save();
 
         $techtags = Techtag::find($tag_name);
+
         foreach($techtags as $techtag) {
-            $techtag->questions->save($question);// 有问题
+            $techtag->questions()->attach($question->id);
         }
-        return redirect()->route('new.questions');
+       
+        return redirect()->route('new.questions')->with(['success' => '问题提问成功!']);
     }
 }
