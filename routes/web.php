@@ -47,6 +47,11 @@ Route::group(['middleware' => 'auth'], function() {
         'uses' => 'AskController@postIndex',
         'as' => 'post.question'
     ]);
+    // user profile
+    Route::get('/profile/{id}',[
+        'uses' => 'ProfileController@getProfile',
+        'as'   => 'user.profile'
+    ]);
     Route::get('/logout',[
         'uses' => 'IndexController@getLogout',
         'as' => 'get.logout'

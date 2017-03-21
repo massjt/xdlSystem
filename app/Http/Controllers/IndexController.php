@@ -34,7 +34,7 @@ class IndexController extends Controller
         if (!Auth::guard()->attempt(['email' => $request->email, 'password' => $request->password],$request->remember_me)) {
             return redirect()->back()->withInput()->with(['use_pwd_fail' => '用户名或密码错误']);
         }
-        return redirect()->intended('questions');
+        return redirect()->intended('questions')->with(['success' => '欢迎进入兄弟连问答勾搭会所']);
     }
 
     public function getLogout()

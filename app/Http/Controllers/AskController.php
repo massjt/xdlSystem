@@ -38,6 +38,6 @@ class AskController extends Controller
             $techtag->questions()->attach($question->id);
         }
        
-        return redirect()->route('new.questions')->with(['success' => '问题提问成功!']);
+        return redirect()->route('new.questions')->with(['success' => '提问成功,请等待回答!']);
     }
 }
