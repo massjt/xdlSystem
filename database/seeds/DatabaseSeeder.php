@@ -14,5 +14,6 @@ class DatabaseSeeder extends Seeder
         // $this->call(OpreatingSeeder::class);
         // $this->call(QuestionTabSeeder::class);
         // $this->call(TechtagTabSeeder::class);
+        $this->call(UserTabSeeder::class);
     }
 }

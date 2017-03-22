@@ -52,6 +52,11 @@ Route::group(['middleware' => 'auth'], function() {
         'uses' => 'ProfileController@getProfile',
         'as'   => 'user.profile'
     ]);
+    // edit user profile
+    Route::get('/profile/{id}/edit', [
+        'uses' => 'ProfileController@editProfile',
+        'as' => 'edit.profile'
+    ]);
     Route::get('/logout',[
         'uses' => 'IndexController@getLogout',
         'as' => 'get.logout'

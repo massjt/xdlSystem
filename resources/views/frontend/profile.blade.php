@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title','😀个人中心')
+@section('title',$user->name.'的😬😀个人中心')
 
 @section('styles')
 <style>
@@ -9,9 +9,12 @@
 @endsection
 
 @section('content')
-    @include('vendor.ueditor.assets')
     @include('includes.header')
-    
+    <div class="row">
+        <div class="column">
+            <h2 class="ui center aligned icon header"><i class="circular users icon"></i> Friends </h2>
+        </div>
+    </div>
 @endsection
 
 @section('scripts')
@@ -20,15 +23,5 @@
     $('.ui.fluid.search.dropdown').dropdown({
         maxSelections: 4
     });
-// 设置 标签值
-    $('.ask_question_btn').click(function(){
-        var len = $('.label.transition.visible').length;
-        var t = [];
-        for(var i = 0; i < len; i++) {
-            t.push($('.label.transition.visible:eq('+i+')').data('value'));
-        }
-        $('select option:selected').val(t);
-        $('form').submit();
-    })
 </script>
 @endsection

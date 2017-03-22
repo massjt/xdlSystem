@@ -15,6 +15,8 @@ class UserTabSeeder extends Seeder
         $user->email = 'massjt@qq.com';
         $user->name = 'massjt';
         $user->password = bcrypt('massjt');
+        $user->class = 'S60';
+        $user->introduction = 'you are you are look like oh oh oh';
         $user->save();
     }
 }
