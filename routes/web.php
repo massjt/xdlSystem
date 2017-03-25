@@ -48,14 +48,19 @@ Route::group(['middleware' => 'auth'], function() {
         'as' => 'post.question'
     ]);
     // user profile
-    Route::get('/profile/{id}',[
+    Route::get('/profile/{name}',[
         'uses' => 'ProfileController@getProfile',
         'as'   => 'user.profile'
     ]);
     // edit user profile
-    Route::get('/profile/{id}/edit', [
+    Route::get('/profile/{name}/edit', [
         'uses' => 'ProfileController@editProfile',
         'as' => 'edit.profile'
+    ]);
+    // post user profile info
+    Route::post('/profile', [
+        'uses' => 'ProfileController@postProfile',
+        'as' => 'post.profile'
     ]);
     Route::get('/logout',[
         'uses' => 'IndexController@getLogout',

@@ -28,6 +28,10 @@ Project started 😀😬✊🍺👏
     operating   操作表(用户对问题的操作)
         int user_id int question_id bool voteup bool votedown bool collection
     posts   文章信息
+    comments    评论表
+        question_id user_id content
+
+        show_segment.blade.php
 
     Todo: 基于问题评论表的评论
     

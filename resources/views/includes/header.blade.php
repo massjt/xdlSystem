@@ -16,7 +16,8 @@
                 <div class="ui dropdown item header-user">
                     <i class="user icon"></i>
                     <div class="menu">
-                        <a class="item" href="{{route('user.profile',['id' => Request::user()->id])}}">个人中心</a>
+                        <a class="item" href="{{route('user.profile',['name' => Request::user()->name])}}">个人中心</a>
+                        <a href="{{ route('edit.profile',['name' => Request::user()->name]) }}" class="item">编辑个人资料</a>
                         <a class="item" data-user="notifacation">消息通知</a>
                         <a class="item" data-user="recoder">回答记录</a>
                         <a class="item" href="/logout">登出</a>

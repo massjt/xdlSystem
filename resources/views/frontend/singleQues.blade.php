@@ -45,6 +45,8 @@
     </div>
     <h2 class="ui dividing header" style="width:100%;">多少个回答</h2>
     <script id="container" name="content" type="text/plain"></script>
+
+    @include('includes.comment')
 @endsection
 
 @section('scripts')
